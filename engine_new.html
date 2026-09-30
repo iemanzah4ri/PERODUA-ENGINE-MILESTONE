@@ -162,7 +162,7 @@ footer{padding:16px 20px calc(30px + env(safe-area-inset-bottom));color:var(--mu
 <main class="app">
 
   <header class="top etop">
-    <a class="back" id="back" href="index.html">&#8249; Milestones</a>
+    <a class="back" id="back" href="index_new.html">&#8249; Milestones</a>
     <div>
       <div class="eyr" id="cyear"></div>
       <h1 id="cname"></h1>
@@ -224,7 +224,7 @@ const CARS = [
   /*{id:'avanza', year:2004, name:'Avanza', type:'7-seater MPV', shape:'mpv', color:'#8d99a6',
    desc:'The Toyota Avanza arrived as a compact MPV with flexible seating for families.',
    facts:['Toyota compact MPV','Seven-seat configuration','Available with 1.3L and 1.5L engines']},*/
-  {id:'myvi', year:2005, name:'Myvi First Generation', type:'Hatchback', shape:'hatch', color:'#f1f1ee',
+  {id:'myvi1st', year:2005, name:'Myvi First Generation', type:'Hatchback', shape:'hatch', color:'#f1f1ee',
    desc:'The hatchback that became a Malaysian favourite and a top seller for many years.',
    facts:['Long-running best seller','Now in its third generation','Family-friendly size']},
   {id:'viva', year:2007, name:'Viva', type:'Hatchback', shape:'hatch', color:'#f08a24',
@@ -233,16 +233,16 @@ const CARS = [
   {id:'alza', year:2009, name:'Alza', type:'7-seater MPV', shape:'mpv', color:'#8d99a6',
    desc:'A seven-seater MPV made for big families, with space for everyone.',
    facts:['Seven seats','Family MPV','Second generation launched in 2022']},
-  {id:'myvi-2011', year:2011, name:'Myvi Second Generation', type:'Hatchback', shape:'hatch', color:'#f1f1ee',
+  {id:'myvi2nd', year:2011, name:'Myvi Second Generation', type:'Hatchback', shape:'hatch', color:'#f1f1ee',
    desc:'The second-generation Myvi brought a redesigned shape and updated cabin to Perodua’s popular hatchback.',
    facts:['Second-generation Myvi','Available with 1.3L and 1.5L engines','Redesigned for its generation']},
-  {id:'axia', year:2014, name:'Axia', type:'Entry-level hatchback', shape:'hatch', color:'#22a6a0',
+  {id:'axia1st', year:2014, name:'Axia', type:'Entry-level hatchback', shape:'hatch', color:'#22a6a0',
    desc:'A fuel-efficient entry-level hatchback with safety features on the list.',
    facts:['Entry-level hatchback','Fuel-efficient','Modern safety basics']},
   {id:'bezza', year:2016, name:'Bezza', type:'Sedan', shape:'sedan', color:'#b8202f',
    desc:'Perodua’s first sedan, giving buyers a boot for luggage and a more formal look.',
    facts:['First Perodua sedan','Large boot','Comfortable for families']},
-  {id:'myvi-2017', year:2017, name:'Myvi Third Generation', type:'Hatchback', shape:'hatch', color:'#f1f1ee',
+  {id:'myvi3rd', year:2017, name:'Myvi Third Generation', type:'Hatchback', shape:'hatch', color:'#f1f1ee',
    desc:'The third-generation Myvi arrived with a redesigned cabin and updated safety features.',
    facts:['Third-generation Myvi','Available with 1.3L and 1.5L engines','Updated safety features']},
   {id:'aruz', year:2019, name:'Aruz', type:'7-seater SUV', shape:'suv', color:'#2d3a4a',
@@ -251,13 +251,13 @@ const CARS = [
   {id:'ativa', year:2021, name:'Ativa', type:'Compact SUV', shape:'suv', color:'#0b7a3e',
    desc:'The first Perodua on the new DNGA platform, with turbo power and driver-assist safety.',
    facts:['First DNGA platform model','1.0L turbo engine','Smart Assist safety system']},
-  {id:'alza-2022', year:2022, name:'Alza', type:'7-seater MPV', shape:'mpv', color:'#8d99a6',
+  {id:'alza2nd', year:2022, name:'Alza', type:'7-seater MPV', shape:'mpv', color:'#8d99a6',
    desc:'The second-generation Alza arrived with a new platform, updated cabin and modern safety features.',
    facts:['Second-generation Alza','Seven seats','1.5L engine']},
-  {id:'axia-2023', year:2023, name:'Axia', type:'Entry-level hatchback', shape:'hatch', color:'#22a6a0',
+  {id:'axia2nd', year:2023, name:'Axia', type:'Entry-level hatchback', shape:'hatch', color:'#22a6a0',
    desc:'The second-generation Axia introduced a redesigned body and updated technology for Perodua’s entry-level hatchback.',
    facts:['Second-generation Axia','1.0L engine','Updated safety features']},
-  {id:'axia-rahmah-2023', year:2023, name:'Axia Rahmah', type:'Entry-level hatchback', shape:'hatch', color:'#22a6a0',
+  {id:'axiarahmah', year:2023, name:'Axia Rahmah', type:'Entry-level hatchback', shape:'hatch', color:'#22a6a0',
    desc:'The Axia E was offered under the Rahmah initiative as an affordable manual hatchback.',
     facts:['Axia E Rahmah edition','1.0L engine','Five-speed manual transmission']},
     {id:'traz', year:2025, name:'Traz', type:'Compact crossover', shape:'suv', color:'#f2b705',
@@ -334,13 +334,13 @@ const CAR_ENGINES = {
   kembara:['e1300HCEJ','e1300K3VE'],
   kenari:['e1000EJDE','e1000EJVE'],
   kelisa:['e850EDDE','e1000EJDE','e1000EJVE'],
-  myvi:['e1000EJVE','e1300K3VE'],
-  'myvi-2011':['e1300K3VE','e15003SZVE'],
-  'myvi-2017':['e13001NRVE','e15002NRVE'],
+  myvi1st:['e1000EJVE','e1300K3VE'],
+  'myvi2nd':['e1300K3VE','e15003SZVE'],
+  'myvi3rd':['e13001NRVE','e15002NRVE'],
   /*avanza:['e1300K3VE','e15003SZVE'],*/
   viva:['e660EFVE','e850EDVE','e1000EJVE'],
-  alza:['e15003SZVE'],
-  'alza-2022':['e15002NRVE'],
+  alza1st:['e15003SZVE'],
+  'alza2nd':['e15002NRVE'],
   axia:['e10001KRDE2','e10001KRVE'],
   'axia-2023':['e10001KRVE'],
   'axia-rahmah-2023':['e10001KRVE'],
@@ -405,7 +405,7 @@ let cur = keys.includes(q.get('e')) ? q.get('e') : keys[0];
 /* header + back link (returns to the same car on page 1) */
 $('cyear').textContent = car.year + ' · ' + car.type;
 $('cname').textContent = car.name;
-$('back').href = 'index.html?car=' + car.id;
+$('back').href = 'index_new.html?car=' + car.id;
 document.title = car.name + ' engine · Perodua';
 
 /* engine tabs, only if the car has more than one engine */
