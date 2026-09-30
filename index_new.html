@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perodua Milestones · Kancil to Traz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* PERODUA MILESTONES: clean, dark, digital look. Edit the colours in :root */
+:root{
+  --bg:#060a10; --panel:rgba(255,255,255,.035); --line:rgba(255,255,255,.11); --line2:rgba(255,255,255,.22);
+  --ink:#e8eff6; --mute:#8694a4; --ac:#35f0b4; --ac-d:#04140e; --glow:0 0 22px rgba(53,240,180,.35);
+  --head:"Chakra Petch","Rajdhani",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;color-scheme:dark}
+body{margin:0;color:var(--ink);font:400 clamp(15px,3.9vw,16px)/1.55 var(--body);background-color:var(--bg);
+  background-image:radial-gradient(90% 40% at 50% 0,rgba(53,240,180,.09),transparent 70%),
+  linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:auto,44px 44px,44px 44px;background-attachment:fixed}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.app{max-width:680px;margin:0 auto;min-height:100dvh}
+
+/* header */
+.top{padding:calc(20px + env(safe-area-inset-top)) 20px 14px;border-bottom:1px solid var(--line)}
+.top h1{margin:0;font:600 clamp(24px,7vw,32px)/1.1 var(--head);letter-spacing:.02em}
+.top p{margin:4px 0 0;color:var(--mute);font-size:.9em}
+
+/* stage */
+.stage{position:relative;overflow:hidden;touch-action:pan-y;user-select:none;margin:16px 16px 0;
+  border:1px solid var(--line);background:var(--panel);padding:44px 8px 46px;min-height:clamp(250px,54vw,340px);
+  display:flex;align-items:center;justify-content:center}
+.stage::before,.stage::after{content:"";position:absolute;width:18px;height:18px;border:2px solid var(--ac);z-index:3;pointer-events:none}
+.stage::before{left:-1px;top:-1px;border-right:0;border-bottom:0}
+.stage::after{right:-1px;bottom:-1px;border-left:0;border-top:0}
+.bigyear{position:absolute;left:0;right:0;top:4px;text-align:center;font:700 clamp(110px,36vw,200px)/1 var(--head);
+  color:transparent;-webkit-text-stroke:1px rgba(53,240,180,.22);pointer-events:none}
+.carwrap{position:relative;width:min(80%,460px);z-index:1;cursor:pointer;color:var(--ac)}
+.art{width:100%;color:var(--ac)}
+.art svg{display:block;width:100%;height:auto;filter:drop-shadow(0 0 8px rgba(53,240,180,.45))}
+.art img{display:block;width:100%;height:auto}
+.roadline{position:absolute;left:0;right:0;bottom:0;height:22px;border-top:1px solid var(--ac);
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.3) 0 1px,transparent 1px 12px) 0 0/100% 7px no-repeat}
+.nav{position:absolute;top:50%;translate:0 -50%;z-index:2;width:48px;height:48px;border:1px solid var(--line2);
+  background:rgba(6,10,16,.6);color:var(--ink);font:400 30px/1 var(--head);padding-bottom:4px}
+.nav:active{background:var(--ac);color:var(--ac-d);border-color:var(--ac)}
+.prev{left:8px}.next{right:8px}
+.count{position:absolute;right:14px;bottom:30px;z-index:2;color:var(--ac);font:500 14px var(--head);letter-spacing:.08em}
+.hint{position:absolute;left:14px;bottom:30px;z-index:2;color:var(--mute);font-size:.76em}
+.carwrap.in-r{animation:inr .42s cubic-bezier(.2,.8,.2,1)}
+.carwrap.in-l{animation:inl .42s cubic-bezier(.2,.8,.2,1)}
+@keyframes inr{from{opacity:0;transform:translateX(60px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@keyframes inl{from{opacity:0;transform:translateX(-60px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+
+/* info */
+.info{padding:22px 20px 8px}
+.meta{display:flex;align-items:center;gap:12px}
+.badge{border:1px solid var(--ac);color:var(--ac);padding:2px 12px;font-size:.82em;letter-spacing:.02em}
+.yr{font:500 20px var(--head);color:var(--mute)}
+.info h2{margin:8px 0 6px;font:700 clamp(42px,13vw,60px)/1 var(--head);letter-spacing:-.01em}
+.info p{margin:0 0 16px;color:#b6c2ce;max-width:60ch}
+.engrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 14px;margin:0 0 12px;border:1px solid var(--line);background:var(--panel)}
+.engrow span{color:var(--mute);font-size:.9em}
+.engrow b{font:500 17px var(--head);color:var(--ac);text-align:right}
+.facts{list-style:none;margin:0 0 16px;padding:0;border-top:1px solid var(--line)}
+.facts li{padding:11px 0 11px 22px;border-bottom:1px solid var(--line);position:relative}
+.facts li::before{content:"";position:absolute;left:4px;top:19px;width:7px;height:7px;background:var(--ac)}
+.seeeng{display:flex;align-items:center;justify-content:center;min-height:52px;margin:0 0 18px;background:var(--ac);color:var(--ac-d);
+  font:600 17px var(--head);letter-spacing:.03em;text-decoration:none;box-shadow:var(--glow)}
+.seeeng:active{filter:brightness(.85)}
+.bar{height:3px;background:var(--line)}
+.bar i{display:block;height:100%;width:0;background:var(--ac);box-shadow:var(--glow);transition:width .45s}
+.play{margin:16px 0 4px;min-height:48px;padding:0 24px;border:1px solid var(--ac);color:var(--ac);font:500 16px var(--head);letter-spacing:.03em}
+.play.on{background:var(--ac);color:var(--ac-d)}
+
+/* year bar */
+.chips{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding:14px 20px;position:sticky;top:0;z-index:5;
+  background:rgba(6,10,16,.88);backdrop-filter:blur(10px);border-block:1px solid var(--line);scrollbar-width:none;margin-top:14px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;scroll-snap-align:center;min-width:72px;min-height:56px;padding:6px 10px;border:1px solid var(--line);
+  background:var(--panel);text-align:center;line-height:1.15;position:relative}
+.chip b{display:block;font:600 19px var(--head)}
+.chip span{font-size:.72em;color:var(--mute)}
+.chip.on{border-color:var(--ac);background:rgba(53,240,180,.1);box-shadow:var(--glow)}
+.chip.on b{color:var(--ac)}
+
+/* full flow */
+.flow{padding:26px 16px 8px}
+.flow h3{margin:0 0 18px 4px;font:600 22px var(--head);letter-spacing:.02em}
+.road{list-style:none;margin:0;padding:0;position:relative}
+.road::before{content:"";position:absolute;left:62px;top:0;bottom:0;width:1px;background:linear-gradient(var(--ac),var(--line2) 30%,var(--line))}
+.road li{display:grid;grid-template-columns:44px 36px 1fr;align-items:center;margin-bottom:10px}
+.road .y{font:500 17px var(--head);color:var(--mute);text-align:right}
+.road .dot{width:11px;height:11px;background:var(--bg);border:1px solid var(--ac);justify-self:center;position:relative;z-index:1;rotate:45deg}
+.card{display:flex;align-items:center;gap:12px;width:100%;min-height:72px;padding:8px 12px;text-align:left;
+  background:var(--panel);border:1px solid var(--line);transition:border-color .2s,background .2s}
+.card:active{background:rgba(53,240,180,.08)}
+.card .art{width:96px;flex:0 0 96px}
+.card .art svg{filter:none}
+.card strong{display:block;font:600 21px/1.1 var(--head)}
+.card small{color:var(--mute)}
+.road li.on .dot{background:var(--ac);box-shadow:var(--glow);scale:1.3}
+.road li.on .card{border-color:var(--ac);background:rgba(53,240,180,.07)}
+.road li.on .y{color:var(--ac)}
+footer{padding:16px 20px calc(30px + env(safe-area-inset-bottom));color:var(--mute);font-size:.85em;text-align:center}
+
+/* ============ PAGE 2: engine ============ */
+.etop{display:flex;flex-direction:column;gap:8px}
+.back{align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;padding:0 16px 0 10px;border:1px solid var(--line2);text-decoration:none;font:500 15px var(--head)}
+.back:active{background:var(--ac);color:var(--ac-d)}
+.eyr{color:var(--ac);font:500 15px var(--head);letter-spacing:.04em}
+.engstage{position:relative;overflow-x:auto;margin:16px 16px 0;border:1px solid var(--line);
+  background-color:var(--panel);background-image:linear-gradient(rgba(53,240,180,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(53,240,180,.06) 1px,transparent 1px);background-size:28px 28px;
+  padding:60px 8px 40px;min-height:clamp(300px,84vw,480px);display:flex;align-items:center}
+.engname{position:absolute;left:16px;top:14px;z-index:2;font:700 clamp(28px,8.5vw,42px)/1 var(--head);color:var(--ink)}
+#engart{width:100%;margin:0 auto;max-width:900px;color:var(--ac)}
+.eart{width:100%;transition:width .3s;cursor:zoom-in;color:var(--ac)}
+.eart svg{display:block;width:100%;height:auto;filter:drop-shadow(0 0 10px rgba(53,240,180,.4))}
+.eart img{display:block;width:100%;height:auto}
+.engstage.zoomed #engart{width:190%;max-width:none;margin:0}
+.engstage.zoomed .eart{cursor:zoom-out}
+.zoombtn{position:absolute;right:10px;top:10px;z-index:3;min-height:44px;padding:0 16px;border:1px solid var(--line2);background:rgba(6,10,16,.7);font:500 14px var(--head)}
+.engstage.zoomed .zoombtn{position:sticky;right:auto;left:100%;margin-left:-112px;align-self:flex-start}
+.etabs{display:flex;gap:8px;padding:14px 20px 0;overflow-x:auto}
+.etab{flex:0 0 auto;min-height:46px;padding:0 20px;border:1px solid var(--line);background:var(--panel);font:500 16px var(--head)}
+.etab.on{border-color:var(--ac);color:var(--ac);background:rgba(53,240,180,.1)}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:0 0 6px;background:var(--line);border:1px solid var(--line)}
+.specs div{background:var(--bg);padding:12px 14px}
+.specs small{display:block;color:var(--mute);font-size:.8em}
+.specs b{font:600 23px/1.25 var(--head);color:var(--ac)}
+.sub{margin:26px 0 10px;font:600 20px var(--head);letter-spacing:.02em}
+.used{display:flex;flex-wrap:wrap;gap:8px}
+.use{display:flex;flex-direction:column;min-width:86px;min-height:56px;padding:8px 14px;border:1px solid var(--line);background:var(--panel);text-decoration:none;line-height:1.2}
+.use b{font:600 19px var(--head)}
+.use span{font-size:.8em;color:var(--mute)}
+.use.on{border-color:var(--ac);background:rgba(53,240,180,.1)}
+.use.on b{color:var(--ac)}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-bottom:28px}
+.pn a{display:flex;flex-direction:column;min-height:72px;padding:10px 14px;border:1px solid var(--line);background:var(--panel);text-decoration:none}
+.pn a:last-child{text-align:right}
+.pn small{color:var(--ac)}
+.pn b{font:600 22px/1.1 var(--head)}
+.pn span{font-size:.8em;color:var(--mute)}
+
+@media (min-width:700px){.info,.flow{padding-left:32px;padding-right:32px}.stage,.engstage{margin-inline:32px}}
+@media (max-width:340px){.card .art{width:72px;flex-basis:72px}.road li{grid-template-columns:38px 30px 1fr}.road::before{left:53px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+</style>
+</head>
+<body>
+<main class="app">
+
+  <header class="top">
+    <h1>Perodua Milestones</h1>
+    <p>From Kancil to Traz. Swipe the car or tap a year.</p>
+  </header>
+
+  <!-- Main viewer -->
+  <section class="stage" id="stage" aria-live="polite">
+    <div class="bigyear" id="bigyear" aria-hidden="true"></div>
+    <div class="carwrap" id="carwrap"></div>
+    <div class="roadline" aria-hidden="true"></div>
+    <button class="nav prev" id="prev" aria-label="Previous car">&#8249;</button>
+    <button class="nav next" id="next" aria-label="Next car">&#8250;</button>
+    <div class="count" id="count"></div>
+    <div class="hint">Tap the car to see its engine</div>
+  </section>
+
+  <!-- Car details -->
+  <section class="info">
+    <div class="meta"><span class="badge" id="type"></span><span id="year" class="yr"></span></div>
+    <h2 id="name"></h2>
+    <p id="desc"></p>
+    <div class="engrow"><span>Engine</span><b id="engtxt"></b></div>
+    <ul class="facts" id="facts"></ul>
+    <a class="seeeng" id="seeeng" href="engine_new.html">See the engine</a>
+    <div class="bar"><i id="bar"></i></div>
+    <button class="play" id="play">Play the journey</button>
+  </section>
+
+  <!-- Year scrubber -->
+  <nav class="chips" id="chips" aria-label="Jump to a car"></nav>
+
+  <!-- Full flow -->
+  <section class="flow">
+    <h3>The full flow, 1994 to 2025</h3>
+    <ol class="road" id="road"></ol>
+  </section>
+
+  <footer>Tap any car to open it in the viewer.</footer>
+</main>
+<script>
+/* ---------------------------------------------------------------
+   PERODUA MILESTONES
+   To use real photos: put a file named  images/<id>.png  (e.g. images/kancil.png)
+   next to index.html. If the photo exists it replaces the drawing automatically.
+   Please check the facts below against Perodua's official pages before publishing.
+---------------------------------------------------------------- */
+const CARS = [
+  {id:'kancil', year:1994, name:'Kancil', type:'Mini hatchback', shape:'hatch',
+   desc:'The first Perodua. It put a small, affordable car within reach of many Malaysian families.',
+   facts:['First model from Perodua','Compact city car','Built for affordability']},
+  {id:'rusa', year:1996, name:'Rusa', type:'Van-style MPV', shape:'mpv',
+   desc:'A boxy people-carrier for work and family, with lots of space inside.',
+   facts:['Van-style MPV','Space for cargo and passengers','Popular for business use']},
+  {id:'kembara', year:1998, name:'Kembara', type:'Compact SUV', shape:'suv',
+   desc:'Perodua’s first compact SUV, built for rougher roads and outdoor trips.',
+   facts:['Compact SUV','Higher ground clearance','Made for adventure']},
+  {id:'kenari', year:2000, name:'Kenari', type:'Mini hatchback', shape:'hatch',
+   desc:'A tall mini hatchback with a roomy cabin for its size.',
+   facts:['Mini hatchback','Tall and roomy cabin','Easy to park']},
+  {id:'kelisa', year:2002, name:'Kelisa', type:'Hatchback', shape:'hatch',
+   desc:'A friendly city hatchback that added more style and comfort to the range.',
+   facts:['City hatchback','Refined look for its time','Simple to drive']},
+  /*{id:'avanza', year:2004, name:'Avanza', type:'7-seater MPV', shape:'mpv',
+   desc:'The Toyota Avanza arrived as a compact MPV with flexible seating for families.',
+   facts:['Toyota compact MPV','Seven-seat configuration','Available with 1.3L and 1.5L engines']},*/
+  {id:'myvi1st', year:2005, name:'Myvi 1st Generation', type:'Hatchback', shape:'hatch',
+   desc:'The hatchback that became a Malaysian favourite and a top seller for many years.',
+   facts:['Long-running best seller','Now in its third generation','Family-friendly size']},
+  {id:'viva', year:2007, name:'Viva', type:'Hatchback', shape:'hatch',
+   desc:'A small hatchback that kept running costs low for first-time car owners.',
+   facts:['Small hatchback','Low running costs','Good for first-time buyers']},
+  {id:'alza1st', year:2009, name:'Alza 1st Generation', type:'7-seater MPV', shape:'mpv',
+   desc:'A seven-seater MPV made for big families, with space for everyone.',
+   facts:['Seven seats','Family MPV','Second generation launched in 2022']},
+  {id:'myvi2nd', year:2011, name:'Myvi 2nd Generation', type:'Hatchback', shape:'hatch',
+   desc:'The second-generation Myvi brought a redesigned shape and updated cabin to Perodua’s popular hatchback.',
+   facts:['Second-generation Myvi','Available with 1.3L and 1.5L engines','Redesigned for its generation']},
+  {id:'axia1st', year:2014, name:'Axia 1st Generation', type:'Entry-level hatchback', shape:'hatch',
+   desc:'A fuel-efficient entry-level hatchback with safety features on the list.',
+   facts:['Entry-level hatchback','Fuel-efficient','Modern safety basics']},
+  {id:'bezza', year:2016, name:'Bezza', type:'Sedan', shape:'sedan',
+   desc:'Perodua’s first sedan, giving buyers a boot for luggage and a more formal look.',
+   facts:['First Perodua sedan','Large boot','Comfortable for families']},
+  {id:'myvi3rd', year:2017, name:'Myvi 3rd Generation', type:'Hatchback', shape:'hatch',
+   desc:'The third-generation Myvi arrived with a redesigned cabin and updated safety features.',
+   facts:['Third-generation Myvi','Available with 1.3L and 1.5L engines','Updated safety features']},
+  {id:'aruz', year:2019, name:'Aruz', type:'7-seater SUV', shape:'suv',
+   desc:'A seven-seater SUV that mixes family space with a taller, stronger stance.',
+   facts:['Seven seats','SUV styling','Room for family trips']},
+  {id:'ativa', year:2021, name:'Ativa', type:'Compact SUV', shape:'suv',
+   desc:'The first Perodua on the new DNGA platform, with turbo power and driver-assist safety.',
+   facts:['First DNGA platform model','1.0L turbo engine','Smart Assist safety system']},
+  {id:'alza2nd', year:2022, name:'Alza 2nd Generation', type:'7-seater MPV', shape:'mpv',
+   desc:'The second-generation Alza arrived with a new platform, updated cabin and modern safety features.',
+   facts:['Second-generation Alza','Seven seats','1.5L engine']},
+  {id:'axia2nd', year:2023, name:'Axia 2nd Generation', type:'Entry-level hatchback', shape:'hatch',
+   desc:'The second-generation Axia introduced a redesigned body and updated technology for Perodua’s entry-level hatchback.',
+   facts:['Second-generation Axia','1.0L engine','Updated safety features']},
+  {id:'axiarahmah', year:2023, name:'Axia Rahmah', type:'Entry-level hatchback', shape:'hatch',
+   desc:'The Axia E was offered under the Rahmah initiative as an affordable manual hatchback.',
+    facts:['Axia E Rahmah edition','1.0L engine','Five-speed manual transmission']},
+    {id:'traz', year:2025, name:'Traz', type:'Compact crossover', shape:'suv',
+    desc:'The latest in the journey: a compact crossover with modern design and safety tech.',
+    facts:['Latest model in this timeline','DNGA platform','Smart Assist safety system']}
+];
+
+/* ---- car drawings (used when no photo is found) ---- */
+const SHAPES = {
+  hatch:{cab:'62,68 92,36 190,36 236,68', win:'74,66 97,42 186,42 224,66', p:150},
+  sedan:{cab:'70,68 100,38 180,38 214,68', win:'80,66 103,44 176,44 205,66', p:145},
+  suv:  {cab:'58,68 76,32 226,32 250,68', win:'68,66 81,38 222,38 240,66', p:150},
+  mpv:  {cab:'54,68 66,30 236,30 256,68', win:'64,66 71,36 232,36 246,66', p:150}
+};
+function carSVG(c){
+  const s = SHAPES[c.shape];
+  const L = 'stroke="currentColor" stroke-linejoin="round" stroke-linecap="round"';
+  const wheel = x => `<path d="M${x-25} 102 A25 25 0 0 1 ${x+25} 102" fill="none" ${L} stroke-width="1.2" opacity=".55"/>
+    <circle cx="${x}" cy="102" r="19" fill="#060a10" ${L} stroke-width="1.8"/>
+    <circle cx="${x}" cy="102" r="11" fill="none" ${L} stroke-width="1" opacity=".6"/>
+    <circle cx="${x}" cy="102" r="3.5" fill="currentColor"/>`;
+  return `<svg viewBox="0 0 300 130" role="img" aria-label="${c.name}">
+    <line x1="0" y1="122" x2="300" y2="122" ${L} stroke-width="1" opacity=".3"/>
+    <polygon points="${s.cab}" fill="currentColor" fill-opacity=".05" ${L} stroke-width="1.8"/>
+    <polygon points="${s.win}" fill="currentColor" fill-opacity=".14" ${L} stroke-width="1"/>
+    <line x1="${s.p}" y1="34" x2="${s.p}" y2="68" ${L} stroke-width="1.6"/>
+    <path d="M12 102 V82 Q12 70 28 68 L272 68 Q288 72 290 88 V102 Z" fill="currentColor" fill-opacity=".07" ${L} stroke-width="1.8"/>
+    <path d="M22 84 H282" ${L} stroke-width="1" opacity=".4"/>
+    <rect x="276" y="75" width="12" height="5" rx="1" fill="currentColor"/>
+    <rect x="12" y="75" width="8" height="5" rx="1" fill="none" ${L} stroke-width="1.2"/>
+    ${wheel(78)}${wheel(228)}
+  </svg>`;
+}
+/* shows the drawing first, swaps to images/<id>.png if it loads */
+function art(c){
+  const d = document.createElement('div'); d.className = 'art';
+  d.innerHTML = carSVG(c);
+  const img = new Image(); img.alt = c.name;
+  img.onload = () => { d.innerHTML = ''; d.append(img); };
+  img.src = 'images/' + c.id + '.png';
+  return d;
+}
+
+/* ---------------------------------------------------------------
+   ENGINES: which engine belongs to which car
+   Please check capacities and engine lists against Perodua's official specs.
+   To use a real engine photo, add images/engine-<key>.png (e.g. images/engine-e1500.png)
+---------------------------------------------------------------- */
+const ENGINES = {
+  e660: '660cc',
+  e660EFVE: '660cc EF-VE',
+  e850: '850cc',
+  e850EDDE:'850cc ED-DE',
+  e850EDVE:'850cc ED-VE',
+  e1000: '1.0L',
+  e1000EJDE: '1.0L EJ-DE',
+  e1000EJVE: '1.0L EJ-VE',
+  e10001KRDE2: '1.0L 1KR-DE2',
+  e10001KRVE: '1.0L 1KR-VE',
+  e10001KRVET: '1.0L 1KR-VET',
+  e1300: '1.3L',
+  e1600: '1.6L',
+  e1300HCEJ: '1.3L HC-EJ',
+  e1300K3VE: '1.3L K3-VE',
+  e13001NRVE:'1.3L 1NR-VE',
+  e1500: '1.5L Dual VVT-i',
+  e15003SZVE: '1.5L 3SZ-VE',
+  e15002NRVE: '1.5L 2NR-VE',
+  e1000t: '1.0L Turbo'
+};
+const CAR_ENGINES = {
+  kancil:['e660','e850','e1000'],
+  rusa:['e1300','e1600'], 
+  kembara:['e1300HCEJ', 'e1300K3VE',], 
+  kenari:['e1000EJDE','e1000EJVE'], 
+  kelisa:['e850EDDE','e1000EJDE','e1000EJVE'],
+  myvi1st:['e1000EJVE','e1300K3VE'], 'myvi2nd':['e1300K3VE','e15003SZVE'], 'myvi3rd':['e13001NRVE','e15002NRVE'],
+  /*avanza':['e1300K3VE','e15003SZVE'],*/
+  viva:['e660EFVE','e850EDVE','e1000EJVE'], 
+  alza1st:['e15003SZVE'], 'alza2nd':['e15002NRVE'], 
+  axia1st:['e10001KRDE2','e10001KRVE'],'axia2nd':['e10001KRVE'], 'axiarahmah':['e10001KRVE'],
+  bezza:['e10001KRVE','e13001NRVE'], 
+  aruz:['e15002NRVE'], 
+  ativa:['e10001KRVET'], 
+  traz:['e15002NRVE']
+};
+
+</script>
+<script>
+/* Build the timeline. */
+const $ = id => document.getElementById(id);
+const chips = $('chips'), road = $('road');
+CARS.forEach((c, i) => {
+  const b = document.createElement('button');
+  b.className = 'chip'; b.innerHTML = `<b>${c.year}</b><span>${c.name}</span>`;
+  b.onclick = () => go(i);
+  chips.append(b);
+
+  const li = document.createElement('li');
+  li.innerHTML = `<span class="y">${c.year}</span><span class="dot"></span>`;
+  const card = document.createElement('button');
+  card.className = 'card';
+  card.append(art(c));
+  const t = document.createElement('span');
+  t.innerHTML = `<strong>${c.name}</strong><small>${c.type}</small>`;
+  card.append(t);
+  card.onclick = () => { go(i); $('stage').scrollIntoView({behavior:'smooth'}); };
+  li.append(card);
+  road.append(li);
+});
+
+let cur = -1, timer = null;
+function go(i, silent){
+  i = (i + CARS.length) % CARS.length;
+  if (i === cur) return;
+  const dir = i > cur ? 'in-r' : 'in-l', c = CARS[i];
+  cur = i;
+  const w = $('carwrap'); w.className = 'carwrap'; void w.offsetWidth; w.className = 'carwrap ' + dir;
+  w.replaceChildren(art(c));
+  $('bigyear').textContent = c.year;
+  $('year').textContent = c.year;
+  $('engtxt').textContent = CAR_ENGINES[c.id].map(k => ENGINES[k]).join(', ');
+  $('seeeng').href = 'engine_new.html?car=' + c.id;
+  $('name').textContent = c.name;
+  $('type').textContent = c.type;
+  $('desc').textContent = c.desc;
+  $('facts').innerHTML = c.facts.map(f => `<li>${f}</li>`).join('');
+  $('count').textContent = `${i + 1} of ${CARS.length}`;
+  $('bar').style.width = ((i + 1) / CARS.length * 100) + '%';
+  [...chips.children].forEach((e, k) => e.classList.toggle('on', k === i));
+  [...road.children].forEach((e, k) => e.classList.toggle('on', k === i));
+  const ch = chips.children[i];
+  chips.scrollTo({left: ch.offsetLeft - chips.clientWidth / 2 + ch.offsetWidth / 2, behavior:'smooth'});
+  if (!silent) stop();
+}
+
+/* ---- controls: buttons, swipe, keyboard, autoplay ---- */
+$('prev').onclick = () => go(cur - 1);
+$('next').onclick = () => go(cur + 1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') go(cur + 1);
+  if (e.key === 'ArrowLeft') go(cur - 1);
+});
+let x0 = null, dragged = false;
+const st = $('stage');
+st.addEventListener('pointerdown', e => { x0 = e.clientX; dragged = false; });
+st.addEventListener('pointerup', e => {
+  if (x0 === null) return;
+  const dx = e.clientX - x0; x0 = null; dragged = Math.abs(dx) > 10;
+  if (Math.abs(dx) > 45) go(cur + (dx < 0 ? 1 : -1));
+});
+st.addEventListener('pointercancel', () => { x0 = null; });
+
+function stop(){ clearInterval(timer); timer = null; $('play').classList.remove('on'); $('play').textContent = 'Play the journey'; }
+/* tap the car (not a swipe) to open page 2 */
+$('carwrap').onclick = () => { if (!dragged) location.href = 'engine_new.html?car=' + CARS[cur].id; };
+$('play').onclick = () => {
+  if (timer) return stop();
+  $('play').classList.add('on'); $('play').textContent = 'Pause';
+  if (cur === CARS.length - 1) go(0, true);
+  timer = setInterval(() => {
+    go(cur + 1, true);
+  }, 2600);
+};
+
+const start = CARS.findIndex(c => c.id === new URLSearchParams(location.search).get('car'));
+go(start < 0 ? 0 : start, true);
+
+</script>
+</body>
+</html>
