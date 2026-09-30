@@ -162,7 +162,7 @@ footer{padding:16px 20px calc(30px + env(safe-area-inset-bottom));color:var(--mu
 <main class="app">
 
   <header class="top etop">
-    <a class="back" id="back" href="index_new.html">&#8249; Milestones</a>
+    <a class="back" id="back" href="index.html">&#8249; Milestones</a>
     <div>
       <div class="eyr" id="cyear"></div>
       <h1 id="cname"></h1>
@@ -405,7 +405,7 @@ let cur = keys.includes(q.get('e')) ? q.get('e') : keys[0];
 /* header + back link (returns to the same car on page 1) */
 $('cyear').textContent = car.year + ' · ' + car.type;
 $('cname').textContent = car.name;
-$('back').href = 'index_new.html?car=' + car.id;
+$('back').href = 'index.html?car=' + car.id;
 document.title = car.name + ' engine · Perodua';
 
 /* engine tabs, only if the car has more than one engine */
