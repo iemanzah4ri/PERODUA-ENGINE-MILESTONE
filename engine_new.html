@@ -475,5 +475,11 @@ engineDialog.addEventListener('click', event => {
 show(cur);
 
 </script>
+<script>
+document.addEventListener('pointerdown', event => {
+  if (event.pointerType !== 'touch' || document.fullscreenElement || !document.documentElement.requestFullscreen) return;
+  document.documentElement.requestFullscreen().catch(() => {});
+});
+</script>
 </body>
 </html>
