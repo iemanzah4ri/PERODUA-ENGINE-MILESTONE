@@ -475,5 +475,12 @@ engineDialog.addEventListener('click', event => {
 show(cur);
 
 </script>
+<script>
+  //update fullscreen on touch devices (to avoid accidental fullscreen on desktop)
+document.addEventListener('pointerdown', event => {
+  if (event.pointerType !== 'touch' || document.fullscreenElement || !document.documentElement.requestFullscreen) return;
+  document.documentElement.requestFullscreen().catch(() => {});
+});
+</script>
 </body>
 </html>
