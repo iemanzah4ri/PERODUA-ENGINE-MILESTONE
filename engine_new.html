@@ -476,13 +476,6 @@ show(cur);
 
 </script>
 <script>
-  //update fullscreen on touch devices (to avoid accidental fullscreen on desktop)
-document.addEventListener('pointerdown', event => {
-  if (event.pointerType !== 'touch' || document.fullscreenElement || !document.documentElement.requestFullscreen) return;
-  document.documentElement.requestFullscreen().catch(() => {});
-});
-</script>
-<script>
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname))) {
   window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
 }

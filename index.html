@@ -424,12 +424,6 @@ go(start < 0 ? 0 : start, true);
 
 </script>
 <script>
-document.addEventListener('pointerdown', event => {
-  if (event.pointerType !== 'touch' || document.fullscreenElement || !document.documentElement.requestFullscreen) return;
-  document.documentElement.requestFullscreen().catch(() => {});
-});
-</script>
-<script>
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname))) {
   window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
 }
