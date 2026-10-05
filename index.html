@@ -26,9 +26,11 @@ a{color:inherit}
 .app{width:100%;min-height:100dvh}
 
 /* header */
-.top{padding:calc(20px + env(safe-area-inset-top)) 20px 14px;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:calc(20px + env(safe-area-inset-top)) 20px 14px;border-bottom:1px solid var(--line)}
+.top .title-wrap{flex:1}
 .top h1{margin:0;font:600 clamp(24px,7vw,32px)/1.1 var(--head);letter-spacing:.02em}
 .top p{margin:4px 0 0;color:var(--mute);font-size:.9em}
+.credit{margin-left:auto;text-align:right;color:var(--mute);font:500 .7rem/1.5 var(--head);letter-spacing:.04em;white-space:nowrap}
 
 /* stage */
 .stage{position:relative;overflow:hidden;touch-action:pan-y;user-select:none;margin:16px 16px 0;
@@ -156,8 +158,11 @@ footer{padding:16px 20px calc(30px + env(safe-area-inset-bottom));color:var(--mu
 <main class="app">
 
   <header class="top">
-    <h1>Perodua Milestones</h1>
-    <p>From Kancil to Traz. Swipe the car or tap a year.</p>
+    <div class="title-wrap">
+      <h1>Perodua Milestones</h1>
+      <p>From Kancil to Traz. Swipe the car or tap a year.</p>
+    </div>
+    <div class="credit">made by: aleeya &amp; ieman<br>supervised by : En. Hafsam &amp; Pn. Norishah</div>
   </header>
 
   <!-- Main viewer -->
